@@ -1,0 +1,102 @@
+/* CSS setup for CarDealerUK website */
+body {
+  width: 100%;
+  height: 100%;
+}
+
+/* Header Styling */
+header, footer {
+  max-width: 1440px;
+  height: 250px;
+  margin: 0 auto;
+}
+
+.header__elem1 {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+  font-size: 30px;
+  height: 100px;
+  width: 100%;
+  margin: 0 auto;
+  margin-left:30px;
+}
+
+.header__text--large, .footer__text--large {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.header__text--small, .footer__text--small {
+  font-size: 15px;
+  margin-left: 5px;
+  color: #7572FF;
+  font-weight: bold;
+}
+
+.header__elem2 {
+  height: 137px;
+  background: #282338;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 0 0 0 60px;
+}
+
+/* Footer Styling */
+.footer__information {
+  width: 100%;
+  height:396px;
+  background: #282338;
+  border-radius: 0 60px 0 0;
+}
+
+.footer__container {
+  display: flex;
+  height: 100px;
+  width: 100px;
+  align-items: center;
+  margin-left: 40px;
+}
+
+.footer__text--large {
+  color: #ffffff;
+}
+
+.footer__legal {
+  background: #3F3A50;
+  height: 199px;
+  width: 100%;
+}
+
+/* Body Styling */
+.page-width {
+  display: flex;
+  max-width:1440px;
+  margin: 0 auto;
+}
+
+.filter {
+  background: #3F3A50;
+  width: 298px;
+  height: 1031px;
+  margin: 17px 32px;
+}
+
+.filter__container {
+
+}
+
+.vehicles {
+  width: 1029px;
+  height: 2038px;
+  margin: 17px 32px;
+}
+
+@media (min-width:768px){
+
+}
+
+
+@media (min-width:375px){
+
+}
