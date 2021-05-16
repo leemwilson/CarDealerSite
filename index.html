@@ -1152,30 +1152,23 @@
 
 
         function imagePrev() {
-          console.log(Number(currImage));
-          console.log(Number(childCount));
           if ((Number(currImage) == 0)) {
 
           } else {
             currImage -= 1;
             var leftPos = (-333) * currImage;
             leftPos = leftPos + "px";
-            console.log(leftPos);
             document.getElementById('test-container').style.left = leftPos;
             document.getElementById("current-count").innerHTML = (currImage + 1);
           }
         }
 
         function imageNext() {
-          console.log(Number(currImage) == 0);
-          console.log(Number(currImage) == Number(childCount));
           if (Number(currImage) == (Number(childCount) - 1)) {
-            console.log('c');
           } else {
             currImage += 1;
             var leftPos = (-333) * currImage;
             leftPos = leftPos + "px";
-            console.log(leftPos);
             document.getElementById('test-container').style.left = leftPos;
             document.getElementById("current-count").innerHTML = (currImage + 1);
           }
