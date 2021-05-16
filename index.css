@@ -329,7 +329,7 @@ header .vehicle__header {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  transition: left 2s;
+  transition: left 1s;
 }
 
 .vehicle__carousel__inner img {
@@ -596,7 +596,7 @@ header .vehicle__header {
 
 /* Responsive Designs */
 @media (max-width:1440px){
-  .filter__container {
+  .filter {
     display: none;
   }
 
@@ -605,11 +605,6 @@ header .vehicle__header {
   }
 
   .vehicle__card {
-  }
-
-  .vehicle__carousel__inner {
-    left: 0!important;
-    transition: none;
   }
 }
 
@@ -639,6 +634,11 @@ header .vehicle__header {
     max-width: 327px;
   }
 
+  .vehicle__carousel__inner {
+    left: 0!important;
+    transition: none;
+  }
+
   .vehicle__carousel__container img, .vehicle__carousel__container {
     width: 327px;
   }
@@ -654,9 +654,6 @@ header .vehicle__header {
   .vehicle__card__switch {
     order: 2;
   }
-}
-
-@media (max-width:768px){
 }
 
 @media (max-width:670px){
@@ -753,6 +750,7 @@ header .vehicle__header {
 @media (max-width:620px){
   .vehicle__card {
     width: 250px;
+    margin-left: 5px;
   }
 
   .vehicle__carousel__container img, .vehicle__carousel__container {
@@ -924,8 +922,10 @@ header .vehicle__header {
   }
 
   .filter {
+    display: flex;
     position: absolute;
     background: none;
+    margin: 0;
   }
 
   .filter .filter__button {
