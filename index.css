@@ -2,6 +2,7 @@
 body {
   width: 100%;
   height: 100%;
+  margin: 0;
 }
 
 @font-face {
@@ -27,7 +28,7 @@ header, footer {
   margin-left: 40px;
   font-size: 30px;
   height: 100px;
-  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   margin-left:30px;
 }
@@ -83,8 +84,6 @@ header, footer {
   display: flex;
   max-width:1440px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
 }
 
 .filter {
@@ -92,10 +91,7 @@ header, footer {
   width: 298px;
   height: 1031px;
   margin: 17px;
-}
-
-.filter__container {
-
+  margin-right: 50px;
 }
 
 /* Styling for Vehicle Card Containers */
@@ -106,24 +102,137 @@ header, footer {
   background: orange;
 }
 
+/* Vehicle Header Section */
+.vehicle__header {
+  height: 110px;
+  max-width: 1029px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .vehicle__header {
+  display: none;
+}
+
+.vehicle__header__container {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+  height: 50px;
+}
+
+.vehicle__header__showing {
+  width: 147px;
+  display: flex;
+  margin-right: 30px;
+  align-items: center;
+}
+
+.vehicle__header span {
+  height: 30px;
+  font-family:'overpass';
+  font-weight: 700;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+}
+
+.vehicle__header__buttons {
+  display: flex;
+  align-items: center;
+}
+
+.vehicle__header__buttons .button {
+  height:30px;
+  border-radius: 12px;
+  padding: 3px 25px;
+  background: none;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  margin-right: 5px;
+}
+
+.vehicle__header__buttons .button-selected {
+  background: #7572FF;
+  border: 1px solid #7572FF;
+  color: #ffffff;
+}
+
+.vehicle__header__buttons .button-disabled {
+  color: #C5C9D3;
+  border: 1px solid #C5C9D3;
+}
+
+.vehicle__header__buttons label {
+  width:50px;
+  height:50px;
+}
+
+.vehicle__header__buttons input {
+  display: none;
+}
+
+.vehicle__header__buttons label input[type="radio"]:checked .vehicle__header__buttons label {
+
+}
+
+.vehicle__form--absolute {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+/* Form styling for the Vehicle Car Container */
+.vehicle__form {
+  max-width: 160px;
+  background: #F6F7FB;
+  border-radius: 16px;
+}
+
+.vehicle__form__select {
+  border: none;
+  height: 50px;
+  max-width: 150px;
+  background: none;
+  padding-left: 13px;
+  margin-right: 13px;
+  color: #55595D;
+}
+
+.vehicle__form__select:after {
+  margin-right:13px;
+}
+
+
+/* Container for Vehicle Cards */
 .vehicle__container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
-  max-height: 1501px;
   max-width: 1029px;
-  background: red;
-  margin-top: 80px;
 }
 
 /* Styling for Vehicle Cards */
 .vehicle__card {
   position: relative;
-  width: 333px;
+  max-width: 333px;
   box-shadow: 0px 6px 25px rgba(0, 0, 0, 0.15);
   border-radius: 16px; /* REMOVE THIS */
   margin-bottom: 15px;
+  order: 1;
+}
+
+.vehicle__card__second {
+  order: 2;
 }
 
 .vehicle__card__inner {
@@ -141,9 +250,18 @@ header, footer {
   top: 0;
   left: 0;
   height: 250px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+
+.vehicle__card__overlays .vehicle__card__inner {
+  justify-content: space-between;
+}
+
+.vehicle__card__overlays .vehicle__container--row {
+  justify-content: flex-start;
 }
 
 .vehicle__status, .vehicle__attr {
@@ -173,7 +291,7 @@ header, footer {
     font-family: 'Overpass';
     font-size: 12px;
     font-style: normal;
-    line-height: 31px;
+    line-height: 29px;
     letter-spacing: 0em;
     height: 27px;
 }
@@ -183,10 +301,91 @@ header, footer {
   height: 250px;
 }
 
-.vehicle__image img {
+.vehicle__image__container {
+  width:100%;
+  height:100%;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+}
+
+.vehicle__image__container img {
   width: 100%;
   height: 100%;
+}
+
+/* Vehicle Carousel */
+.vehicle__carousel__container {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
   border-radius: 16px 16px 0 0;
+}
+
+.vehicle__carousel__inner {
+  position: absolute;
+  width:100%;
+  height:100%;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  transition: left 2s;
+}
+
+.vehicle__carousel__inner img {
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+/* Image Carousel on Vehicle Cards */
+.vehicle__image__carousel {
+  margin-top: 13px;
+  display: flex;
+}
+
+.vehicle__image__carousel span {
+  height: 24px;
+  color: #ffffff;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.vehicle__image__count {
+  display: flex;
+  width: 37px;
+  justify-content: space-around;
+  margin-right: 10px;
+  font-family: 'SF';
+  font-size: 12px;
+}
+
+.vehicle__image__button {
+  width: 32px;
+  height: 24px;
+  background: #3F3A50;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.vehicle__image__button button {
+  background: none;
+  border: none;
+  width: 100%;
+  color: #ffffff;
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  font-family: 'SF';
+  line-height: 22px;
+}
+
+.vehicle__image--prev {
+  margin-right: 5px;
+}
+
+.vehicle__image--next {
+  margin-right: 10px;
 }
 
 /* Vehicle Card Descriptions */
@@ -200,21 +399,25 @@ header, footer {
 
 .vehicle__desc-top, .vehicle__desc-bottom {
   position: relative;
-  width:327px;
+  max-width:327px;
   height:42px;
   padding-left:10px;
   padding-top:10px;
 }
 
+.vehicle__desc-bottom .vehicle__desc__attr {
+  display: none;
+}
+
 .vehicle__desc-header {
-  width: 313px;
+  max-width: 313px;
   height: 24px;
   font-weight: 400;
   font-size: 16px;
 }
 
 .vehicle__desc-subheader {
-  width: 313px;
+  max-width: 313px;
   height: 18px;
   color: #B0ACA8;
   font-size: 12px;
@@ -237,12 +440,12 @@ header, footer {
 
 }
 
-.vehicle-cost--large {
+.vehicle__cost--large {
   font-size: 18px;
   font-weight: 700;
 }
 
-.vehicle-cost--small {
+.vehicle__cost--small {
   font-size: 12px;
   font-weight: 400;
 }
@@ -255,9 +458,145 @@ header, footer {
   text-decoration: none;
 }
 
+/* Vehicle Card Testing Block - Checking car value */
+.vehicle__test__container {
+  width: 333px;
+  height: 364px;
+  background: #F6F7FB;
+  border-radius: 16px;
+  font-family: 'overpass';
+}
+
+.vehicle__test--title {
+  width: 273px;
+  height: 32px;
+  padding: 30px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.vehicle__test--subtitle {
+  width: 273px;
+  height: 48px;
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: 25px;
+  font-size: 16px;
+}
+
+.vehicle__test--input {
+  position: relative;
+  width: 273px;
+  height: 50px;
+  margin: 0 auto;
+  padding-bottom: 15px;
+}
+
+.vehicle__test--input input {
+  top: 6px;
+  left:7px;
+  width: 273px;
+  height: 50px;
+  border-radius: 16px;
+  border: none;
+  z-index:1;
+  color: #A2A9AF;
+  padding-left:13px;
+}
+
+.vehicle__test--small {
+  position: absolute;
+  top: -7px;
+  left: 7px;
+  background: #F6F7FB;
+  padding: 0 6px;
+  border-radius: 16px;
+  font-size: 12px;
+}
+
+.vehicle__test--small span {
+  color: #F87B7B;
+}
+
+.vehicle__test--button {
+  margin: 0 auto;
+  width: 273px;
+}
+
+.vehicle__test--button button {
+  width: 100%;
+  height: 50px;
+  border-radius: 16px;
+  border: none;
+  background: #7572FF;
+  color: #ffffff;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.vehicle__test--button button:active {
+  opacity: .75;
+}
+
+/* Vehicle Feed Bottom Navigation */
+.vehicle__nav {
+  max-width: 1029px;
+  height: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.vehicle__nav a {
+  font-family: 'SF';
+  max-width: 87px;
+  color: #55595D;
+}
+
+.vehicle__nav__buttons button {
+  width: 50px;
+  height: 30px;
+  border-radius: 8px;
+  border: 2px solid #E5E5E5;
+  background: none;
+  color: #55595D;
+  font-family: 'SF';
+  font-weight: 600;
+}
+
+.vehicle__nav__buttons .button--current {
+  border: 2px solid #7572FF;
+  background: #7572FF;
+  color: #ffffff;
+}
+
+.vehicle__nav__buttons .button--highlight {
+  border: 2px solid #000000;
+}
+
+/* Bottom Finance Block */
+.vehicle__finance {
+  max-width: 1029px;
+  height: 347px;
+  background: #F6F7FB;
+  border-radius: 16px;
+  margin-bottom: 50px;
+  border: 1px solid #D1D6E0;
+}
+
+.vehicle__carousel__container img, .vehicle__carousel__container {
+  width: 333px;
+}
+
+.filter__button {
+  display: none;
+}
+
 /* Responsive Designs */
 @media (max-width:1440px){
-  .filter {
+  .filter__container {
     display: none;
   }
 
@@ -267,12 +606,25 @@ header, footer {
 
   .vehicle__card {
   }
+
+  .vehicle__carousel__inner {
+    left: 0!important;
+    transition: none;
+  }
 }
 
 @media (max-width:1048px){
   header {
     height:100px;
     border-bottom: 1px solid #D1D6E0;
+  }
+
+  .vehicle__header__showing .title--hidden {
+    display: none;
+  }
+
+  .vehicle__header__showing {
+    width: auto;
   }
 
   .header__elem2 {
@@ -284,17 +636,332 @@ header, footer {
   }
 
   .vehicle__card {
-    width:327px;
+    max-width: 327px;
+  }
+
+  .vehicle__carousel__container img, .vehicle__carousel__container {
+    width: 327px;
+  }
+
+  .vehicle__image__carousel {
+    display: none;
+  }
+
+  .vehicle__card__tester {
+    order: 1;
+  }
+
+  .vehicle__card__switch {
+    order: 2;
   }
 }
 
 @media (max-width:768px){
-  .vehicle {
-    width:342px;
+}
+
+@media (max-width:670px){
+  .vehicle__image {
+    height: 220px;
+  }
+
+  .vehicle__card__overlays {
+    height: 220px;
+  }
+
+  .vehicle__card {
+    width:300px;
+  }
+
+  .vehicle__carousel__container img, .vehicle__carousel__container {
+    width: 300px;
+  }
+
+  .vehicle__container {
+    margin-top: 15px;
+  }
+
+  .vehicle__header {
+    min-height: 40px;
+    height: auto;
+  }
+
+  .vehicle__header__buttons {
+    width: 100vw;
+    display: flex;
+    justify-content: space-around;
+    order: 1;
+    padding-top:15px;
+  }
+
+  .vehicle__header__container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /* margin-right: 13px; */
+    height: 105px;
+  }
+
+  .vehicle__header__buttons .button-disabled {
+    color: #D1D6E0;
+  }
+
+  .button-selected {
+    border-bottom: 3px solid #7572FF;
+  }
+
+  .vehicle__header__showing {
+    order: 2;
+    margin-left: 13px;
+  }
+
+  .vehicle__form__container {
+    display: flex;
+    align-items: center;
+  }
+
+  .vehicle__form {
+    background: none;
+  }
+
+  .vehicle__form--absolute {
+    position: relative;
+    order: 2;
+  }
+
+  .vehicle__header__showing .title--hidden {
+    display: flex;
+  }
+
+  .vehicle__header__buttons .button {
+    background: none;
+    border: none;
+    border-radius: 0;
+    width: 25%;
+    height: 40px;
+    margin: 0;
+    font-size: 14px;
+    font-family: "SF";
+    font-weight: 600;
+    color: #55595D;
+  }
+
+  .vehicle__header__buttons .button-selected {
+    border-bottom: 3px solid #7572FF;
+    color: #000000;
   }
 }
 
+@media (max-width:620px){
+  .vehicle__card {
+    width: 250px;
+  }
+
+  .vehicle__carousel__container img, .vehicle__carousel__container {
+    width: 250px;
+  }
+
+  .vehicle__card__overlays {
+    display: none;
+  }
+
+  .vehicle .vehicle__header__buttons {
+    display: none;
+  }
+
+  header {
+    height: auto;
+    box-shadow: 0px 6px 25px rgb(0 0 0 / 15%);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: #ffffff;
+  }
+
+  header .vehicle__header {
+    display: flex;
+  }
+
+  header .vehicle__form__container, header .vehicle__header__showing {
+    display: none;
+  }
+
+  header .button {
+    height: auto;
+  }
+
+  header .vehicle__header__container {
+    height: 40px;
+  }
+
+  header .vehicle__header__buttons {
+    padding-top: 0;
+  }
+
+  .vehicle__nav .vehicle__form__select {
+    display: none;
+  }
+
+  .vehicle__nav {
+    flex-wrap: wrap;
+  }
+
+  .vehicle__nav a {
+    order: 2;
+    min-width: 100%;
+    text-align: center;
+  }
+
+  .vehicle__nav .vehicle__nav__buttons {
+    order: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .vehicle__finance {
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+}
 
 @media (max-width:375px){
 
+  header {
+    min-width: 300px;
+  }
+
+  header .header__elem1 {
+    height: 50px;
+    margin-left: 15px;
+  }
+
+  .vehicle__container {
+    justify-content: flex-start;
+  }
+
+  .vehicle__container .vehicle__card {
+    width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .vehicle__card .vehicle__image {
+    height: 84px;
+    margin-bottom: 10px;
+  }
+
+  .vehicle__image .vehicle__carousel__container {
+    width: 100%;
+    border-radius: 0;
+    overflow: scroll;
+  }
+
+  .vehicle__carousel__inner {
+    margin-left: 13px;
+  }
+
+  .vehicle__carousel__inner img {
+    width: 113px;
+    border-radius: 16px;
+    height: 84px;
+    margin-right: 5px;
+  }
+
+  .vehicle__header__container {
+    height: 40px;
+  }
+
+  .vehicle__header .vehicle__header__buttons {
+    width: 100%;
+  }
+
+  .vehicle__header__buttons .button {
+    padding: 0;
+  }
+
+  .vehicle__desc-bottom {
+    display: flex;
+  }
+
+  .vehicle__desc--small {
+    width: 50%;
+    height: 100%;
+  }
+
+  .vehicle__desc-bottom .vehicle__desc__attr {
+    display: flex;
+  }
+
+  .vehicle__desc--small .vehicle__cost--large {
+    font-size: 14px;
+  }
+
+  .vehicle__desc--small {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .vehicle__desc__attr {
+    font-family: 'SF';
+    font-weight: 400;
+    font-size: 12px;
+    color: #D1D6E0;
+  }
+
+  .vehicle__desc__attr .text--split {
+    color: #D1D6E0;
+  }
+
+  .vehicle__desc__text, .text--split {
+    margin-right: 5px;
+  }
+
+  .vehicle .vehicle__header {
+    display: flex;
+    max-width: 350px
+  }
+
+  .filter {
+    position: absolute;
+    background: none;
+  }
+
+  .filter .filter__button {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+  }
+
+  .filter__button button {
+    width: 130px;
+    height:50px;
+    background: #7572FF;
+    border-radius: 16px;
+    margin: 0 auto;
+    border: none;
+    font-family: 'Overpass';
+    font-weight: 600px;
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width:320px){
+  .vehicle__header .vehicle__form__select {
+    display: none;
+  }
+
+  .vehicle__header__showing {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+  }
 }
